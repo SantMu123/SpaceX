@@ -9,21 +9,26 @@
 
 .container{
     display: grid;
-    grid-template-columns: 1fr, 8fr, 1fr;
-    grid-template-rows: 100px, 200px, 150px;
+    grid-template-columns: 10%, 1fr, 15%;
+    grid-template-rows: .1fr, 6fr, .2fr;
     grid-gap: 8px;
     grid-template-areas: 
         "title title title"
         "lateralLeft middle lateralRigth"
         "footer footer footer"
     ;
-    
+    height: 99vh;
+    width: 196vh;
 }
 .title{
     grid-area: title;
     display: flex;
     justify-content: center;
     background: coral;
+}
+.title h1{
+    background: red;
+    height: auto;
 }
 .lateralLeft{
     grid-area: lateralLeft;
@@ -33,6 +38,7 @@
     gap:1em;
     flex-direction: column;
     background: cornflowerblue;
+    height: 75vh;
 }
 .lateralLeft_childrens{
     display: flex;
@@ -48,7 +54,7 @@
     background: grey;
     display: grid;
     grid-template-columns: repeat(5, 1fr);
-    grid-template-rows: .8fr .8fr 1fr;
+    grid-template-rows: 1.fr .8fr 1fr;
     grid-gap: 4px;
     grid-template-areas: 
         "mid1 mid2 . mid3 mid4"
@@ -130,7 +136,7 @@
 .footer{
     grid-area: footer;
     display: flex;
-    justify-content: space-between;
+    justify-content: space-around;
     background: red;
 }
 
