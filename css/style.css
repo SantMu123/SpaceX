@@ -1,1 +1,162 @@
 @import url(variables.css);
+
+*{
+    margin: 0;
+    padding: .2em;
+    box-sizing: border-box;
+    font-family: "SF-Pro-Text-Regular";
+}
+
+.container{
+    display: grid;
+    grid-template-columns: 1fr, 8fr, 1fr;
+    grid-template-rows: 100px, 200px, 150px;
+    grid-gap: 8px;
+    grid-template-areas: 
+        "title title title"
+        "lateralLeft middle lateralRigth"
+        "footer footer footer"
+    ;
+    
+}
+.title{
+    grid-area: title;
+    display: flex;
+    justify-content: center;
+    background: coral;
+}
+.lateralLeft{
+    grid-area: lateralLeft;
+    padding-left: 1em;
+    padding-top: 1em;
+    display: flex;
+    gap:1em;
+    flex-direction: column;
+    background: cornflowerblue;
+}
+.lateralLeft_childrens{
+    display: flex;
+    align-items: center;
+    flex-direction: row;
+    background: plum;
+}
+.lateralLeft-childrens div{
+    display: flex;
+}
+.middle{
+    grid-area: middle;
+    background: grey;
+    display: grid;
+    grid-template-columns: repeat(5, 1fr);
+    grid-template-rows: .8fr .8fr 1fr;
+    grid-gap: 4px;
+    grid-template-areas: 
+        "mid1 mid2 . mid3 mid4"
+        "mid5 mid6 mid7 mid8 mid9"
+        "mid10 . mid11 mid12 ."
+    ;
+    width: 100%;
+    height: auto;
+
+}
+.middle_child1{
+    grid-area: mid1;
+    background: palegoldenrod;
+}
+.middle_child2{
+    grid-area: mid2;
+    background: palegoldenrod;
+}
+.middle_child3{
+    grid-area: mid3;
+    background: palegoldenrod;
+}
+.middle_child4{
+    grid-area: mid4;
+    background: palegoldenrod;
+}
+.middle_child5{
+    grid-area: mid5;
+    background: palegoldenrod;
+}
+.middle_child6{
+    grid-area: mid6;
+    background: palegoldenrod;
+}
+.middle_child7{
+    grid-area: mid7;
+    background: palegoldenrod;
+}
+.middle_child8{
+    grid-area: mid8;
+    background: palegoldenrod;
+}
+.middle_child9{
+    grid-area: mid9;
+    background: palegoldenrod;
+}
+.middle_child10{
+    grid-area: mid10;
+    background: palegoldenrod;
+}
+.middle_child11{
+    grid-area: mid11;
+    background: palegoldenrod;
+}
+.middle_child12{
+    grid-area: mid12;
+    background: palegoldenrod;
+}
+.middle_child13{
+    grid-area: mid13;
+    background: palegoldenrod;
+}
+
+.lateralRigth{
+    grid-area: lateralRigth;
+    padding-left: 1em;
+    padding-top: 1em;
+    display: flex;
+    flex-direction: column;
+    background: green;
+    gap:1em;
+}
+.lateralRigth_childrens{
+    display: flex;
+    justify-content: end;
+    align-items: center;
+    background: palevioletred;
+}
+.footer{
+    grid-area: footer;
+    display: flex;
+    justify-content: space-between;
+    background: red;
+}
+
+.footer-left{
+    display: flex;
+    background: greenyellow;
+    justify-content: center;
+    align-items: center;
+}
+
+.footer-left div:first-child{
+    border: solid black;
+}
+.footer-left div:nth-child(2){
+    border: solid black;
+}
+
+.footer-middle{
+    display: flex;
+    align-items: center;
+    background: peru;
+}
+.footer-rigth{
+    display: flex;
+    align-items: center;
+}
+.footer-rigth div:first-child{
+    font-size: .8em;
+}
