@@ -5,6 +5,10 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
     <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
+    <link
+    rel="stylesheet"
+    href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css"
+    />
     <link rel = stylesheet href = "css/style.css">
     <script type="module" src="js/main.js" defer></script>
 </head>
@@ -29,12 +33,12 @@
             <div></div>
         </section>
         <section class="middle">
-            <div id = "section__information__1"></div>
+            <div class = "section__information__1" id = "section__information__1"></div>
             <div></div>
-            <div id = "section__information__2"></div>
+            <div class = "section__information__2" id = "section__information__2"></div>
             <div></div>
             <div></div>
-            <div>
+            <div class="swiper">
                 <!-- <div>
                     <div class="carousel__item">
                         <div class="item__progress__bar">
@@ -53,13 +57,25 @@
                         </div>
                     </div>
                 </div> -->
-                <div id="section__image" class="section__image">
-                    <div class="load" style="height: 350px"></div>
+                <div id="section__image" class="swiper-wrapper">
+                    <!-- <div class="load" style="height: 350px"></div> -->
+                    <div class="swiper-slide">Slide 1</div>
+                    <div class="swiper-slide">Slide 2</div>
+                    <!-- <div class="swiper-slide">Slide 3</div> -->
                 </div>
+                <div class="swiper-button-next swiper-navBtn"></div>
+                <div class="swiper-button-prev swiper-navBtn"></div>
+                <div class="swiper-pagination"></div>
             </div>
             <div></div>
             <div></div>
+            <div id="information__table__1" class="information__table__1">
+                <div class="load" style="height: 160px;"></div>
+            </div>
             <div></div>
+            <div id="information__table__2" class="information__table__2">
+                <div class="load" style="height: 160px;"></div>
+            </div>
         </section>
         <nav class = "right">
             <div id = "information__2">
@@ -132,5 +148,7 @@
             </div>
         </section>
     </main>
+    <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
+    <script src="js/script.js"></script>
 </body>
 </html>

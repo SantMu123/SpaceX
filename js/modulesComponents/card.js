@@ -3,7 +3,7 @@ export const imageRockets = async(flickr_images)=>{
     let divs = [];
     flickr_images.forEach(val => {
         let div = document.createElement("div");
-        div.classList.add("carousel__item")
+        div.classList.add("swiper-slide")
         let img = document.createElement("img");
         img.setAttribute("src", val)
         img.setAttribute("referrerpolicy", "no-referrer")
