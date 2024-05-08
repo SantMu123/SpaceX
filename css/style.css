@@ -276,7 +276,7 @@ swiper-slide {
     display: flex;
     justify-content: space-between;
     align-items: center;
-    background: red;
+    /* background: red; */
     width: 52em;
 }
 .footer ul li {
