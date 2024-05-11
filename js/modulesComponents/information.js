@@ -80,3 +80,15 @@ export const informationWebRocket = async(wikipedia)=>{
     description__item.append(div)
 
 }
+
+export const informationCapsule = async(lastUpadated) =>{
+    let description__item = document.querySelector("#description__item")
+    let div = document.createElement("div")
+    let h3 = document.createElement("h3")
+    h3.textContent = "Last Updated about the ship"
+    let p = document.createElement("p")
+    p.textContent = lastUpadated
+
+    div.append(h3,p)
+    description__item.append(div)
+}

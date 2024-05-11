@@ -104,6 +104,7 @@ export const getRocketPayloadWeightsTotal  = async() =>{
     docs.forEach(val => data.push(...val.payload_weights))
     data.sort((a,b) => b.kg - a.kg)
     let [maxPayloadWeightsRocket] = data;
+    console.log(maxPayloadWeightsRocket)
     return maxPayloadWeightsRocket;
 }
 

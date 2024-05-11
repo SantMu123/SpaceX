@@ -143,3 +143,57 @@ export const tableRocketColum2 = async (Rocket)=>{
         
     // </div>
 }
+
+export const tableCapsuleColumn1 = async (capsule) =>{
+    let information__table__1 = document.querySelector("#information__table__1");
+    information__table__1.innerHTML = "";
+    let h3 = document.createElement("h3")
+    h3.innerHTML = "Other Capsule Information"
+    let hr = document.createElement("hr")
+    information__table__1.append(h3,hr)
+    information__table__1.style.color = "white"
+
+    let div1 = document.createElement("div");
+    let span1 = document.createElement("span");
+    span1.textContent = "Type"
+    let strong1 = document.createElement("strong");
+    strong1.textContent = `${(capsule.status) ? capsule.status : 0}`
+    div1.append(span1, strong1)
+
+    let div2 = document.createElement("div");
+    let span2 = document.createElement("span");
+    span2.textContent = "Reuse Count: "
+    let strong2 = document.createElement("strong");
+    strong2.textContent = `${capsule.reuse_count}`
+    div2.append(span2, strong2)
+
+    information__table__1.append(div1, div2)
+
+}
+
+export const tableCapsuleColumn2 = async (capsule) =>{
+    let information__table__2 = document.querySelector("#information__table__2");
+    information__table__2.innerHTML = "";
+    let h3 = document.createElement("h3")
+    h3.innerHTML = "Landings"
+    let hr = document.createElement("hr")
+    information__table__2.append(h3,hr)
+    information__table__2.style.color = "white"
+
+    let div1 = document.createElement("div");
+    let span1 = document.createElement("span");
+    span1.textContent = "Water Landings: "
+    let strong1 = document.createElement("strong");
+    strong1.textContent = `${capsule.water_landings}`
+    div1.append(span1, strong1)
+
+    let div2 = document.createElement("div");
+    let span2 = document.createElement("span");
+    span2.textContent = "Land Landings: "
+    let strong2 = document.createElement("strong");
+    strong2.textContent = `${capsule.land_landings}`
+    div2.append(span2, strong2)
+
+    information__table__2.append(div1, div2)
+
+}
