@@ -60,3 +60,38 @@ export const informRocketEngineThrustVacuum = async(thrust_vacuum)=>{
     section__information__1.innerHTML = "";
     section__information__1.append(div)
 }
+
+export const ceoInformation = async(info)=>{
+    
+    let h3 = document.createElement("h3")
+    h3.innerHTML = `CEO of ${info.name}`
+    let h1 = document.createElement("h1")
+    h1.innerHTML = `${info.ceo}`
+
+    let section__information__main = document.querySelector("#section__information__main");
+    section__information__main.style.color = "white"
+    section__information__main.innerHTML = "";
+    section__information__main.append(h3, h1)
+
+    let h3_2 = document.createElement("h3")
+    h3_2.innerHTML = `COO of ${info.name}`
+    let h1_2 = document.createElement("h1")
+    h1_2.innerHTML = `${info.coo}`
+
+    let section__information__1 = document.querySelector("#section__information__1");
+    section__information__1.style.color = "white"
+    section__information__1.innerHTML = "";
+    section__information__1.append(h3_2, h1_2)
+
+    let h3_3 = document.createElement("h3")
+    h3_3.innerHTML = `CTO Propulsion of ${info.name}`
+    let h1_3 = document.createElement("h1")
+    h1_3.innerHTML = `${info.cto_propulsion}`
+
+    let section__information__2 = document.querySelector("#section__information__2");
+    section__information__2.style.color = "white"
+    section__information__2.innerHTML = "";
+    section__information__2.append(h3_3, h1_3)
+
+
+}

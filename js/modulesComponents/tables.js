@@ -197,3 +197,21 @@ export const tableCapsuleColumn2 = async (capsule) =>{
     information__table__2.append(div1, div2)
 
 }
+
+export const valuationCompany = async (info) =>{
+    let information__table__main = document.querySelector("#information__table__main");
+    information__table__main.innerHTML = "";
+    let h3 = document.createElement("h3")
+    h3.innerHTML = "Valuation"
+    let h1 = document.createElement("h1")
+    h1.innerHTML = info.valuation
+    
+    information__table__main.append(h3, h1)
+    information__table__main.style.color = "white"
+    information__table__main.style.display = "flex"
+    information__table__main.style["flex-direction"] = "column"
+    information__table__main.style["align-items"] = "center"
+    information__table__main.style["justify-content"] = "center"
+
+
+}

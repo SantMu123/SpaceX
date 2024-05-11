@@ -92,3 +92,15 @@ export const informationCapsule = async(lastUpadated) =>{
     div.append(h3,p)
     description__item.append(div)
 }
+
+export const summaryCompany = async(summary) =>{
+    let description__item = document.querySelector("#description__item")
+    let div = document.createElement("div")
+    let h3 = document.createElement("h3")
+    h3.textContent = "About Space X"
+    let p = document.createElement("p")
+    p.textContent = summary
+
+    div.append(h3,p)
+    description__item.append(div)
+}

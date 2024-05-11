@@ -6,23 +6,30 @@ import{
     getAllCapsules,
     getAllCapsulesId
 } from "../modules/capsules.js"
+import{
+    getAllInfoCompany
+} from "../modules/InfoCompany.js"
 import { 
     nameRockets,
-    nameCapsules 
+    nameCapsules,
+    nameCompany 
 } from "./title.js";
 import { 
     informationRockets, 
     informationLaunchCostRocket,
     informationFirstFlightRocket,
     informationWebRocket,
-    informationCapsule
+    informationCapsule,
+    summaryCompany
 } from "./information.js";
 import { 
     informRocketEngineThrustSeaLevel, 
-    informRocketEngineThrustVacuum
+    informRocketEngineThrustVacuum,
+    ceoInformation
 } from "./inform.js";
 import { 
-    imageRockets 
+    imageRockets
+    //infoCompanyImages 
 } from "./card.js";
 import { 
     progressRocketWeight,
@@ -31,12 +38,14 @@ import {
     progressDiameterRocket,
     progressSecondStageDiameterRocket,
     progressSecondStageHeightRocket,
+    headquartersInformation
 } from "./progressBar.js";
 import {
     tableRocketColum1,
     tableRocketColum2,
     tableCapsuleColumn1,
-    tableCapsuleColumn2
+    tableCapsuleColumn2,
+    valuationCompany
 } from "./tables.js"
 
 const getRocketsId = async(e) => {
@@ -176,4 +185,42 @@ export const paginationCapsules = async(page=1, limit=5)=>{
     //     <a href="#">&raquo;</a>
     // </div>
     return div;
+}
+
+
+export const getInfoCompany = async()=>{
+    
+    
+    let information__2 = document.querySelector("#information__2");
+    information__2.innerHTML = "";
+    let description__item = document.querySelector("#description__item")
+    description__item.innerHTML = "";
+    let section__image = document.querySelector("#section__image")
+    section__image.innerHTML = "";
+    let section__information__1 = document.querySelector("#section__information__1")
+    section__information__1.innerHTML = ""
+    let section__information__2 = document.querySelector("#section__information__2")
+    section__information__2.innerHTML = ""
+    let information__table__1 = document.querySelector("#information__table__1")
+    information__table__1.innerHTML = ""
+    let information__table__2 = document.querySelector("#information__table__2")
+    information__table__2.innerHTML = ""
+
+    let infoCompany = await getAllInfoCompany()
+
+    await nameCompany(infoCompany)
+
+    await ceoInformation(infoCompany)
+
+    await summaryCompany(infoCompany.summary)
+
+    await headquartersInformation(infoCompany)
+
+    await valuationCompany(infoCompany)
+
+    // let Rocket = await getAllRocketsId(e.target.id);
+    // console.log(Rocket);
+
+    // await informationRockets(Rocket.country, Rocket.description)
+    
 }

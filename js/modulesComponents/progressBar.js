@@ -236,3 +236,27 @@ export const progressSecondStageHeightRocket = async(Rockets)=>{
     //     </div>
     // </div>
 }
+
+export const headquartersInformation = async(info) =>{
+    let h3 = document.createElement("h3")
+    h3.innerHTML = "General information"
+    let span1 = document.createElement("span")
+    span1.innerHTML = `Address: ${info.headquarters.address}`
+    let span2 = document.createElement("span")
+    span2.innerHTML = `City: ${info.headquarters.city}`
+    let span3 = document.createElement("span")
+    span3.innerHTML = `State: ${info.headquarters.state}`
+    let span4 = document.createElement("span")
+    span4.innerHTML = `Founded: ${info.founded}`
+    let span5 = document.createElement("span")
+    span5.innerHTML = `Employees: ${info.employees}`
+    let span6 = document.createElement("span")
+    span6.innerHTML = `Vehicles: ${info.vehicles}`
+    let span7 = document.createElement("span")
+    span7.innerHTML = `Launch sites: ${info.launch_sites}`
+
+    let information__2 = document.querySelector("#information__2")
+    information__2.append(h3,span1, span2, span3, span4, span5, span6, span7)
+    information__2.style.display = "flex"
+    information__2.style["flex-direction"] = "column" 
+}

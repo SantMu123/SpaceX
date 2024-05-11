@@ -301,12 +301,24 @@ swiper-slide {
     width: 40px;
     background: #fff;
     border-radius: 50%;
-  }
-  .swiper-navBtn::before,
-  .swiper-navBtn::after {
+}
+
+.swiper-navBtn::before,
+.swiper-navBtn::after {
     font-size: 18px;
-  }
-  
-  .swiper-pagination-bullet {
-    background-color: #000;
-  }
+}
+
+.swiper-pagination-bullet {
+background-color: #000;
+}
+
+
+.section__information__main,
+.section__information__1,
+.section__information__2{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 1em;
+}
