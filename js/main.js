@@ -1,7 +1,9 @@
 import {
     paginationRockets,
     paginationCapsules,
-    getInfoCompany
+    getInfoCompany,
+    getCrewCompany,
+    getHistoryEvents
 } from "./modulesComponents/pagination.js"
 
 let footerSelect = async(e, id)=>{
@@ -37,3 +39,14 @@ let InfoCompany = document.querySelector("#InfoCompany")
 InfoCompany.addEventListener("click", async(e)=>{
     await getInfoCompany()
 })
+
+let Crew = document.querySelector("#Crew")
+Crew.addEventListener("click", async(e)=>{
+    await getCrewCompany()
+})
+
+let Events = document.querySelector("#Events")
+Events.addEventListener("click", async(e)=>{
+    await getHistoryEvents()
+})
+

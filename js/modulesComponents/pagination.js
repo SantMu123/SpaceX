@@ -9,6 +9,12 @@ import{
 import{
     getAllInfoCompany
 } from "../modules/InfoCompany.js"
+import{
+    getAllInfoCrew
+} from "../modules/CrewCompany.js"
+import{
+    getAllInfoEvents
+} from "../modules/HistoryEvents.js"
 import { 
     nameRockets,
     nameCapsules,
@@ -20,7 +26,9 @@ import {
     informationFirstFlightRocket,
     informationWebRocket,
     informationCapsule,
-    summaryCompany
+    summaryCompany,
+    CrewMembers,
+    informationWebCrew
 } from "./information.js";
 import { 
     informRocketEngineThrustSeaLevel, 
@@ -222,5 +230,83 @@ export const getInfoCompany = async()=>{
     // console.log(Rocket);
 
     // await informationRockets(Rocket.country, Rocket.description)
+    
+}
+
+export const getCrewCompany = async()=>{
+    
+    
+    let information__2 = document.querySelector("#information__2");
+    information__2.innerHTML = "";
+    let description__item = document.querySelector("#description__item")
+    description__item.innerHTML = "";
+    let section__image = document.querySelector("#section__image")
+    section__image.innerHTML = "";
+    let section__information__1 = document.querySelector("#section__information__1")
+    section__information__1.innerHTML = ""
+    let section__information__2 = document.querySelector("#section__information__2")
+    section__information__2.innerHTML = ""
+    let information__table__1 = document.querySelector("#information__table__1")
+    information__table__1.innerHTML = ""
+    let information__table__2 = document.querySelector("#information__table__2")
+    information__table__2.innerHTML = ""
+
+    let title = document.querySelector("#header__title")
+    title.innerHTML = ""
+    let h1 = document.createElement("h1")
+    h1.innerHTML = "Members Crew"
+
+    title.append(h1)
+
+    //let infoCompany = await getAllInfoCrew()
+    //console.log(infoCompany)
+    try {
+        let infoCompany = await getAllInfoCrew();
+        
+        // Verifica que infoCompany es un array
+        if (Array.isArray(infoCompany)) {
+            for (let val of infoCompany) {
+                await CrewMembers(val);
+                await informationWebCrew(val)
+            }   
+        } else {
+            console.error('Error: La respuesta de la API no es una lista de objetos.');
+        }
+    } catch (error) {
+        console.error('Error al obtener la información de la API:', error);
+    }
+    
+    //await CrewMembers(infoCompany)
+    
+}
+
+export const getHistoryEvents = async()=>{
+    
+    
+    let information__2 = document.querySelector("#information__2");
+    information__2.innerHTML = "";
+    let description__item = document.querySelector("#description__item")
+    description__item.innerHTML = "";
+    let section__image = document.querySelector("#section__image")
+    section__image.innerHTML = "";
+    let section__information__1 = document.querySelector("#section__information__1")
+    section__information__1.innerHTML = ""
+    let section__information__2 = document.querySelector("#section__information__2")
+    section__information__2.innerHTML = ""
+    let information__table__1 = document.querySelector("#information__table__1")
+    information__table__1.innerHTML = ""
+    let information__table__2 = document.querySelector("#information__table__2")
+    information__table__2.innerHTML = ""
+
+    let title = document.querySelector("#header__title")
+    title.innerHTML = ""
+    let h1 = document.createElement("h1")
+    h1.innerHTML = "Members Crew"
+
+    title.append(h1)
+
+    let infoCompany = await getAllInfoEvents()
+    console.log(infoCompany)
+    
     
 }
