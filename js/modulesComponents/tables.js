@@ -215,3 +215,81 @@ export const valuationCompany = async (info) =>{
 
 
 }
+
+export const EventDate = async (info) =>{
+    let information__table__main = document.querySelector("#information__table__main");
+    information__table__main.innerHTML = "";
+    let h3 = document.createElement("h3")
+    h3.innerHTML = "Date"
+    let p = document.createElement("p")
+    p.innerHTML = info.event_date_utc
+    
+    information__table__main.append(h3, p)
+    information__table__main.style.color = "white"
+    information__table__main.style.display = "flex"
+    information__table__main.style["flex-direction"] = "column"
+    information__table__main.style["align-items"] = "center"
+    information__table__main.style["justify-content"] = "center"
+}
+
+
+export const tableCoreColumn1 = async (core) =>{
+    let information__table__1 = document.querySelector("#information__table__1");
+    information__table__1.innerHTML = "";
+    let h3 = document.createElement("h3")
+    h3.innerHTML = "Core Information"
+    let hr = document.createElement("hr")
+    information__table__1.append(h3,hr)
+    information__table__1.style.color = "white"
+
+    let div1 = document.createElement("div");
+    let span1 = document.createElement("span");
+    span1.textContent = "Reuse Count"
+    let strong1 = document.createElement("strong");
+    strong1.textContent = `${(core.reuse_count) ? core.reuse_count : 0}`
+    div1.append(span1, strong1)
+
+    let div2 = document.createElement("div");
+    let span2 = document.createElement("span");
+    span2.textContent = "Attempts To RTLS: "
+    let strong2 = document.createElement("strong");
+    strong2.textContent = `${core.rtls_attempts}`
+    div2.append(span2, strong2)
+
+    let div3 = document.createElement("div");
+    let span3 = document.createElement("span");
+    span3.textContent = "Landings To RTLS: "
+    let strong3 = document.createElement("strong");
+    strong3.textContent = `${core.rtls_landings}`
+    div3.append(span3, strong3)
+
+    information__table__1.append(div1, div2, div3)
+
+}
+
+export const tableCoreColumn2 = async (core) =>{
+    let information__table__2 = document.querySelector("#information__table__2");
+    information__table__2.innerHTML = "";
+    let h3 = document.createElement("h3")
+    h3.innerHTML = "Landings on Water Information"
+    let hr = document.createElement("hr")
+    information__table__2.append(h3,hr)
+    information__table__2.style.color = "white"
+
+    let div1 = document.createElement("div");
+    let span1 = document.createElement("span");
+    span1.textContent = "Attempts On ASDS: "
+    let strong1 = document.createElement("strong");
+    strong1.textContent = `${core.asds_attempts}`
+    div1.append(span1, strong1)
+
+    let div2 = document.createElement("div");
+    let span2 = document.createElement("span");
+    span2.textContent = "Landings On ASDS: "
+    let strong2 = document.createElement("strong");
+    strong2.textContent = `${core.asds_landings}`
+    div2.append(span2, strong2)
+
+    information__table__2.append(div1, div2)
+
+}

@@ -15,3 +15,9 @@ export const nameCompany = async(name) =>{
     header__title.innerHTML = "";
     header__title.textContent = name.name
 }
+
+export const nameEvent = async(name) =>{
+    let header__title = document.querySelector("#header__title")
+    header__title.innerHTML = "";
+    header__title.textContent = name.title
+}

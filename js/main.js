@@ -3,7 +3,8 @@ import {
     paginationCapsules,
     getInfoCompany,
     getCrewCompany,
-    PaginationHistoryEvents
+    PaginationHistoryEvents,
+    PaginationCores
 } from "./modulesComponents/pagination.js"
 
 let footerSelect = async(e, id)=>{
@@ -51,4 +52,12 @@ Events.addEventListener("click", async(e)=>{
     let paginacion = document.querySelector("#paginacion");
     paginacion.innerHTML = ""
     paginacion.append(await PaginationHistoryEvents())
+})
+
+let Cores = document.querySelector("#Cores")
+Cores.addEventListener("click", async(e)=>{
+    await footerSelect(e, Cores)
+    let paginacion = document.querySelector("#paginacion");
+    paginacion.innerHTML = ""
+    paginacion.append(await PaginationCores())
 })

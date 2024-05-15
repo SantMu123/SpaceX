@@ -95,3 +95,49 @@ export const ceoInformation = async(info)=>{
 
 
 }
+
+export const DetailsEventInformation = async(info)=>{
+    
+    let h2 = document.createElement("h3")
+    h2.innerHTML = "Description"
+
+    let section__information__main = document.querySelector("#section__information__main");
+    section__information__main.style.color = "white"
+    section__information__main.innerHTML = "";
+    
+    let p = document.createElement("p")
+    p.innerHTML = info.details
+
+    section__information__main.append(h2, p)
+
+
+}
+
+export const DetailsCoreInformation = async(info)=>{
+    
+    let h2 = document.createElement("h3")
+    h2.innerHTML = "Main Information"
+
+    let section__information__main = document.querySelector("#section__information__main");
+    section__information__main.style.color = "white"
+    section__information__main.innerHTML = "";
+    
+    let h3 = document.createElement("h3")
+    h3.innerHTML = "Last Update"
+    let p = document.createElement("p")
+    p.innerHTML = info.last_update
+
+    let h3_2 = document.createElement("h3")
+    h3_2.innerHTML = `serial: ${info.serial}`
+
+    let h3_3 = document.createElement("h3")
+    h3_3.innerHTML = `Status: ${info.status}`
+    
+
+    section__information__main.style.display = "flex"
+    section__information__main.style.flexDirection = "column"
+
+    section__information__main.append(h2,p,h3,h3_2,h3_3)
+
+
+}
