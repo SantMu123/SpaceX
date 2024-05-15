@@ -13,7 +13,8 @@ import{
     getAllInfoCrew
 } from "../modules/CrewCompany.js"
 import{
-    getAllInfoEvents
+    getAllInfoEvents,
+    getAllEventsId
 } from "../modules/HistoryEvents.js"
 import { 
     nameRockets,
@@ -280,7 +281,7 @@ export const getCrewCompany = async()=>{
     
 }
 
-export const getHistoryEvents = async()=>{
+export const PaginationHistoryEvents = async(page = 1, limit = 3)=>{
     
     
     let information__2 = document.querySelector("#information__2");
@@ -298,15 +299,86 @@ export const getHistoryEvents = async()=>{
     let information__table__2 = document.querySelector("#information__table__2")
     information__table__2.innerHTML = ""
 
-    let title = document.querySelector("#header__title")
-    title.innerHTML = ""
-    let h1 = document.createElement("h1")
-    h1.innerHTML = "Members Crew"
-
-    title.append(h1)
-
-    let infoCompany = await getAllInfoEvents()
-    console.log(infoCompany)
     
+    let {docs, pagingCounter, totalPages, nextPage} = await getAllInfoEvents(page, limit)
+
+    let div = document.createElement("div");
+    div.classList.add("buttom__paginacion")
+
+    
+    let start = document.createElement("a");
+    start.setAttribute("href","#");
+    start.innerHTML = "&laquo";
+    start.setAttribute("data-page", (page==1) ? totalPages : page-1)
+    start.addEventListener("click", getEventsId)
+    div.appendChild(start);
+    docs.forEach((val,id) => {
+        let a = document.createElement("a");
+        a.setAttribute("href","#");
+        a.id = val.id;
+        a.textContent = pagingCounter;
+        a.addEventListener("click", getEventsId)
+        div.appendChild(a);
+        pagingCounter++
+    });
+    let end = document.createElement("a");
+    end.setAttribute("href","#");
+    end.innerHTML = "&raquo;";
+    end.setAttribute("data-page", (page && nextPage) ? page+1 : 1)
+    end.addEventListener("click", getEventsId)
+    div.appendChild(end);
+    console.log(div);
+    let [back, a1,a2,a3, next] = div.children
+    a1.click();
+    // <div class="buttom__paginacion">
+    //     <a href="#">&laquo;</a> 
+    //     <a href="#" class="activo">1</a>
+    //     <a href="#">2</a>
+    //     <a href="#">3</a>
+    //     <a href="#">4</a>
+    //     <a href="#">&raquo;</a>
+    // </div>
+    return div;
+    
+}
+
+const getEventsId = async(e)=>{
+    e.preventDefault();
+    if(e.target.dataset.page){
+        let paginacion = document.querySelector("#paginacion");
+        paginacion.innerHTML = ""
+        paginacion.append(await PaginationHistoryEvents(Number(e.target.dataset.page)))
+    }
+    let a = e.target.parentElement.children;
+    for(let val of a){
+        val.classList.remove('activo');
+    }
+    e.target.classList.add('activo');
+    
+    let information__2 = document.querySelector("#information__2");
+    information__2.innerHTML = "";
+    let description__item = document.querySelector("#description__item")
+    description__item.innerHTML = "";
+    let section__image = document.querySelector("#section__image")
+    section__image.innerHTML = "";
+    let section__information__1 = document.querySelector("#section__information__1")
+    section__information__1.innerHTML = ""
+    let section__information__2 = document.querySelector("#section__information__2")
+    section__information__2.innerHTML = ""
+
+    let Events = await getAllEventsId(e.target.id)
+    console.log(Events)
+    
+    // await nameCapsules(Events)
+
+    // await informationCapsule(Events.last_update)
+
+    // await tableCapsuleColumn1(Events)
+    // await tableCapsuleColumn2(Events)
+
+    // let Rocket = await getAllRocketsId(e.target.id);
+    // console.log(Rocket);
+
+    // await informationRockets(Rocket.country, Rocket.description)
     
 }
